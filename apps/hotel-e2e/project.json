@@ -1,0 +1,28 @@
+{
+  "root": "apps/hotel-e2e",
+  "sourceRoot": "apps/hotel-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/hotel-e2e/cypress.json",
+        "devServerTarget": "hotel:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "hotel:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/hotel-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["hotel"]
+}
